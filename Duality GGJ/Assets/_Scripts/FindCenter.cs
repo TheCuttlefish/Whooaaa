@@ -9,32 +9,20 @@ public class FindCenter : MonoBehaviour
     public List<Transform> points = new List<Transform>();
     Vector3 newPos = new Vector3(0,0,0);
 
-
-
     private void Awake()
     {
-
         transform.position = transform.parent.position;
-       
     }
 
-    // Update is called once per frame
     void Update()
     {
 
-      
+    for (int i = 0; i < 3; i++) newPos += points[i].position;//find center based on 3 points
 
+    newPos = (newPos / 4);//average points position
+    transform.position -= ( transform.position -  newPos)/ 0.02f * Time.deltaTime;//move object to that position
 
-
-    for (int i = 0; i < 3; i++)
-    {
-            newPos += points[i].position;
-    }
-        newPos = (newPos / 4);
-        
-        transform.position -= ( transform.position -  newPos)/ 0.02f * Time.deltaTime;
-
-        if(RotateWithMovement) transform.localEulerAngles = new Vector3(0, 0, Input.GetAxis("Horizontal") * 45);
+    if(RotateWithMovement) transform.localEulerAngles = new Vector3(0, 0, Input.GetAxis("Horizontal") * 45);//rotate with momement input
 
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//  this is a static class, this should probably be its own class
 public static class INFO
 {
     public static float VEL_MAG = 0;
@@ -19,24 +19,25 @@ public static class INFO
 public class Movement : MonoBehaviour
 {
     Rigidbody2D rb;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        INFO.VEL_MAG = rb.velocity.magnitude;
+        HorizontalMovement();
+        INFO.VEL_MAG = rb.velocity.magnitude;//-- player magnitude is used by points (for line renderer), to control their delay time (to create that fluid line renderer look)
+    }
 
-        if(Physics2D.gravity.y < 0)
-        GetComponent<Rigidbody2D>().AddTorque(-4000 * Input.GetAxis("Horizontal") * Time.deltaTime );
+    void HorizontalMovement()
+    {
+        //rotate in different direction based on current
+        if (Physics2D.gravity.y < 0) GetComponent<Rigidbody2D>().AddTorque(-4000 * Input.GetAxis("Horizontal") * Time.deltaTime);
         else GetComponent<Rigidbody2D>().AddTorque(4000 * Input.GetAxis("Horizontal") * Time.deltaTime);
 
-     
-            //GetComponent<Rigidbody2D>().AddForce(Vector2.right * 50 * Input.GetAxis("Horizontal"));
+        //move into direction using force
         GetComponent<Rigidbody2D>().AddForce(Vector2.right * 10000 * Input.GetAxis("Horizontal") * Time.deltaTime);
-
     }
 }

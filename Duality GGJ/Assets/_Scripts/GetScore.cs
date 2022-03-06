@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GetScore : MonoBehaviour
 {
 
-    Text t;
+    Text t;//record text
     private void Start()
     {
         t = GetComponent<Text>();

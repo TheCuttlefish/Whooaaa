@@ -7,30 +7,23 @@ public class FollowPoints : MonoBehaviour
 
     public List<Transform> points = new List<Transform>();
     LineRenderer lr;
+    float timer = 0;
+    bool showTimer = true;
 
-    // Start is called before the first frame update
+
     private void Awake()
     {
 
-        
+        lr = GetComponent<LineRenderer>();//find line renderer
 
-        lr = GetComponent<LineRenderer>();
-        
-        for (int i = 0; i < 8; i++)
-        {
-            lr.SetPosition(i, points[i].position);
-        }
-        
+        for (int i = 0; i < 8; i++) lr.SetPosition(i, points[i].position);//assign line to points
+
     }
 
-    float timer = 0;
-    bool showTimer = true;
-    // Update is called once per frame
     void Update()
     {
-        
 
-        if (showTimer)
+        if (showTimer) //-- this is here to get rid of graphical glitch when line does not assign to points at start of the game, so the line stays hidden for fraction of a second
         {
             timer += Time.deltaTime;
             if (timer > 0.01f)
@@ -43,11 +36,7 @@ public class FollowPoints : MonoBehaviour
         }
 
 
-        for (int i =0; i < 8; i++)
-        {
-            lr.SetPosition(i, points[i].position);
-        }
-
-       
+        for (int i = 0; i < 8; i++) lr.SetPosition(i, points[i].position);//assign line to points
+        
     }
 }

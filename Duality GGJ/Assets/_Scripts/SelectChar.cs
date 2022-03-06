@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class SelectChar : MonoBehaviour
 {
 
     public CanvasGroup c1, c2, c3;
 
-    
-    // Start is called before the first frame update
     void Start()
     {
         if (INFO.CHAR == 0) Red();
@@ -16,8 +15,6 @@ public class SelectChar : MonoBehaviour
         if (INFO.CHAR == 2) Green();
 
     }
-
-    
 
     public void Red()
     {

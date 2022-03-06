@@ -7,7 +7,7 @@ public class ChangePlayerColour : MonoBehaviour
 
     public Color red, orange, green;
     LineRenderer lr;
-    // Start is called before the first frame update
+
     void Start()
     {
         lr = GetComponent<LineRenderer>();

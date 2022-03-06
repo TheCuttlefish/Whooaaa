@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//this moves a square based on specific frequency and amplitude
 public class SquareMovement : MonoBehaviour
 {
     Vector3 pos;
@@ -10,16 +11,13 @@ public class SquareMovement : MonoBehaviour
     [Range(-1f, 1f)]
     public float offset = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         pos = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         transform.position = pos + transform.up * Mathf.Cos(offset + Time.timeSinceLevelLoad * frequency) * amp;
     }
 }

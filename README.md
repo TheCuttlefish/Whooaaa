@@ -1,4 +1,4 @@
-# Whooaaa Game
+# Whooaaa Game Source Files (Unity 2020.3.18f1)
 This game was made for `Global Game Jam 2022` in 2 days at `UAL:LCC`!
   - [ Play it now on ITCH.IO ](https://zhan.itch.io/duality)
   - [Youtube Video preview](https://www.youtube.com/watch?v=1HG5AC2dXyg)
